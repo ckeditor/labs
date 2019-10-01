@@ -59,11 +59,11 @@ class Clipboard {
 
 	addZone( element, type ) {
 		if ( !( element instanceof HTMLElement ) ) {
-			throw new TypeError( 'Zone container must be an HTML element' );
+			throw new TypeError( 'Zone container must be an HTML element.' );
 		}
 
 		if ( !( type instanceof HandlerType ) ) {
-			throw new TypeError( 'Zone type must be an instance of HandlerType' );
+			throw new TypeError( 'Zone type must be an instance of HandlerType.' );
 		}
 
 		const zones = zonesStore.get( this ) || [];
@@ -72,7 +72,7 @@ class Clipboard {
 		} );
 
 		if ( isDuplicate ) {
-			throw new Error( 'Only one zone of given type can be attached to the same element' );
+			throw new Error( 'Only one zone of a given type can be attached to the same element.' );
 		}
 
 		const listener = evt => {
@@ -108,7 +108,7 @@ class Clipboard {
 
 	getZones( type ) {
 		if ( typeof type !== 'undefined' && !( type instanceof HandlerType ) ) {
-			throw new TypeError( 'Zone type must be an instance of HandlerType' );
+			throw new TypeError( 'Zone type must be an instance of HandlerType.' );
 		}
 
 		const zones = zonesStore.get( this ) || [];
@@ -124,11 +124,11 @@ class Clipboard {
 
 	removeZone( element, type ) {
 		if ( !( element instanceof HTMLElement ) ) {
-			throw new TypeError( 'Zone container must be an HTML element' );
+			throw new TypeError( 'Zone container must be an HTML element.' );
 		}
 
 		if ( !( type instanceof HandlerType ) ) {
-			throw new TypeError( 'Zone type must be an instance of HandlerType' );
+			throw new TypeError( 'Zone type must be an instance of HandlerType.' );
 		}
 
 		const zones = this.getZones();
