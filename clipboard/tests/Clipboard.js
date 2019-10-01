@@ -29,12 +29,12 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.addHandler( 5 );
-				} ).to.throw( TypeError, 'Handler must be an object' );
+				} ).to.throw( TypeError, 'Handler must be an object.' );
 
 				expect( () => {
 					clipboard.addHandler( {
 					} );
-				} ).to.throw( TypeError, 'Handler must have handle method' );
+				} ).to.throw( TypeError, 'Handler must have the handle method.' );
 			} );
 
 			it( 'requires correct type of handler', () => {
@@ -45,14 +45,14 @@ describe( 'Clipboard', () => {
 						type: 'paste',
 						handle() {}
 					} );
-				} ).to.throw( TypeError, 'Handler type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Handler type must be an instance of HandlerType.' );
 
 				expect( () => {
 					clipboard.addHandler( {
 						type: HandlerType.PASTE,
 						handle() {}
 					} );
-				} ).not.to.throw( TypeError, 'Handler type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Handler type must be an instance of HandlerType.' );
 			} );
 
 			it( 'sets type to HandlerType.PASTE if it is not passed', () => {
@@ -76,14 +76,14 @@ describe( 'Clipboard', () => {
 						order: 10.5,
 						handle() {}
 					} );
-				} ).to.throw( TypeError, 'Handler order must be an integer' );
+				} ).to.throw( TypeError, 'Handler order must be an integer.' );
 
 				expect( () => {
 					clipboard.addHandler( {
 						order: 999,
 						handle() {}
 					} );
-				} ).not.to.throw( TypeError, 'Handler order must be an integer' );
+				} ).not.to.throw( TypeError, 'Handler order must be an integer.' );
 			} );
 
 			it( 'sets order to 0 if it is not passed', () => {
@@ -127,11 +127,11 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.getHandlers( 'paste' );
-				} ).to.throw( TypeError, 'Type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Type must be an instance of HandlerType.' );
 
 				expect( () => {
 					clipboard.getHandlers( HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Type must be an instance of HandlerType.' );
 			} );
 
 			it( 'returns all handlers for given type', () => {
@@ -167,7 +167,7 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.removeHandler( handler );
-				} ).to.throw( TypeError, 'Handler must have handle method' );
+				} ).to.throw( TypeError, 'Handler must have the handle method.' );
 			} );
 
 			it( 'removes passed handler', () => {
@@ -223,11 +223,11 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.addZone( { tagName: 'DIV' }, HandlerType.PASTE );
-				} ).to.throw( TypeError, 'Zone container must be an HTML element' );
+				} ).to.throw( TypeError, 'Zone container must be an HTML element.' );
 
 				expect( () => {
 					clipboard.addZone( div, HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Zone container must be an HTML element' );
+				} ).not.to.throw( TypeError, 'Zone container must be an HTML element.' );
 			} );
 
 			it( 'requires correct type', () => {
@@ -236,14 +236,14 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.addZone( div, 'paste' );
-				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 
 				expect( () => {
 					clipboard.addZone( div, HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 			} );
 
-			it( 'throws error when trying to add more than one zone of given type to the same element', () => {
+			it( 'throws error when trying to add more than one zone of a given type to the same element', () => {
 				const clipboard = new Clipboard();
 				const div = document.createElement( 'div' );
 
@@ -251,7 +251,7 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.addZone( div, HandlerType.PASTE );
-				} ).to.throw( Error, 'Only one zone of given type can be attached to the same element' );
+				} ).to.throw( Error, 'Only one zone of a given type can be attached to the same element.' );
 			} );
 
 			it( 'creates appropriate event listener on the element', () => {
@@ -299,11 +299,11 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.getZones( 'paste' );
-				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 
 				expect( () => {
 					clipboard.getZones( HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 			} );
 
 			it( 'returns all zones for given type', () => {
@@ -338,11 +338,11 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.removeZone( { tagName: 'DIV' }, HandlerType.PASTE );
-				} ).to.throw( TypeError, 'Zone container must be an HTML element' );
+				} ).to.throw( TypeError, 'Zone container must be an HTML element.' );
 
 				expect( () => {
 					clipboard.removeZone( div, HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Zone container must be an HTML element' );
+				} ).not.to.throw( TypeError, 'Zone container must be an HTML element.' );
 			} );
 
 			it( 'requires correct type', () => {
@@ -351,11 +351,11 @@ describe( 'Clipboard', () => {
 
 				expect( () => {
 					clipboard.removeZone( div, 'paste' );
-				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 
 				expect( () => {
 					clipboard.removeZone( div, HandlerType.PASTE );
-				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Zone type must be an instance of HandlerType.' );
 			} );
 
 			it( 'removes passed zone', () => {
