@@ -25,7 +25,7 @@ module.exports = {
 		library: 'Clipboard',
 
 		path: path.join( __dirname, 'dist' ),
-		filename: 'clipboard.js',
+		filename: 'clipboar.js',
 		libraryTarget: 'umd',
 		globalObject: '(typeof self !== \'undefined\' ? self : this)'
 	},

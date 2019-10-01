@@ -1,9 +1,9 @@
 {
-  "name": "@ckeditor/clipboard",
+  "name": "clipboar",
   "version": "0.0.0",
   "description": "Simple library for handling pasting and dropping into webpage.",
   "license": "(GPL-2.0-or-later OR LGPL-2.1 OR MPL-1.1)",
-  "main": "dist/clipboard.js",
+  "main": "dist/clipboar.js",
   "files": [
     "dist/"
   ],
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/ckeditor/labs/issues"
   },
-  "homepage": "https://github.com/ckeditor/labs/clipboard#readme",
+  "homepage": "https://github.com/ckeditor/labs/clipboar#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",

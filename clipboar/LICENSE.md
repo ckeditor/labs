@@ -1,7 +1,7 @@
 Software License Agreement
 ==========================
 
-**@ckeditor/clipboard** – https://github.com/ckeditor/labs/clipboard <br>
+**clipboar** – https://github.com/ckeditor/labs/clipboard <br>
 Copyright (c) 2003-2019, [CKSource](http://cksource.com) Frederico Knabben. All rights reserved.
 
 Licensed under the terms of any of the following licenses at your

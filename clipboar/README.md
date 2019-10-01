@@ -1,13 +1,15 @@
-# @ckeditor/clipboard
+# clipboar
 
-[![npm version](https://badge.fury.io/js/@ckeditor/clipboard.svg)](https://www.npmjs.com/package/@ckeditor/clipboard)
+[![npm version](https://badge.fury.io/js/clipboar.svg)](https://www.npmjs.com/package/clipboar)
+
+<img src="./logo.png" alt="" width="600" height="315">
 
 A simple library for handling pasting and dropping into a web page.
 
 ## Usage
 
 ```js
-import { Clipboard, HandlerType } from '@ckeditor/clipboard';
+import { Clipboard, HandlerType } from 'clipboar';
 
 const clipboard = new Clipboard();
 
@@ -62,3 +64,5 @@ choice:
 * [Mozilla Public License Version 1.1 or later (the "MPL")](http://www.mozilla.org/MPL/MPL-1.1.html).
 
 For full details about the license, please check the `LICENSE.md` file.
+
+Boar used inside logo is designed By xylia from [Pngtree.com](https://pngtree.com/).
