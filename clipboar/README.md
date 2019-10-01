@@ -56,13 +56,8 @@ npm run build
 
 Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 
-Licensed under the terms of any of the following licenses at your
-choice:
-
-* [GNU General Public License Version 2 or later](http://www.gnu.org/licenses/gpl.html),
-* [GNU Lesser General Public License Version 2.1 or later](http://www.gnu.org/licenses/lgpl.html),
-* [Mozilla Public License Version 1.1 or later (the "MPL")](http://www.mozilla.org/MPL/MPL-1.1.html).
+Licensed under the terms of [MIT license](https://opensource.org/licenses/MIT).
 
 For full details about the license, please check the `LICENSE.md` file.
 
-Boar used inside logo is designed By xylia from [Pngtree.com](https://pngtree.com/).
+Boar used inside logo is designed by xylia from [Pngtree.com](https://pngtree.com/).

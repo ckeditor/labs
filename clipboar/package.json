@@ -2,7 +2,7 @@
   "name": "clipboar",
   "version": "0.0.0",
   "description": "Simple library for handling pasting and dropping into webpage.",
-  "license": "(GPL-2.0-or-later OR LGPL-2.1 OR MPL-1.1)",
+  "license": "MIT",
   "main": "dist/clipboar.js",
   "files": [
     "dist/"
