@@ -8,4 +8,4 @@ This is a devlopment playground for [CKEditor](https://ckeditor.com/) developers
 
 The following projects can be found in this repository:
 
-* [`clipboard`](https://github.com/ckeditor/labs/tree/master/clipboard) &ndash; A simple library for handling pasting and dropping into a web page.
+* [`clipboar`](https://github.com/ckeditor/labs/tree/master/clipboar) &ndash; A simple library for handling pasting and dropping into a web page.
