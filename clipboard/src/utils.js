@@ -9,19 +9,19 @@ function validateHandler( handler ) {
 	const isCorrectType = handler && typeof handler === 'object' && !Array.isArray( handler );
 
 	if ( !isCorrectType ) {
-		throw new TypeError( 'Handler must be an object' );
+		throw new TypeError( 'Handler must be an object.' );
 	}
 
 	if ( typeof handler.handle !== 'function' ) {
-		throw new TypeError( 'Handler must have handle method' );
+		throw new TypeError( 'Handler must have the handle method.' );
 	}
 
 	if ( typeof handler.type !== 'undefined' && !( handler.type instanceof HandlerType ) ) {
-		throw new TypeError( 'Handler type must be an instance of HandlerType' );
+		throw new TypeError( 'Handler type must be an instance of HandlerType.' );
 	}
 
 	if ( typeof handler.order !== 'undefined' && !isInteger( handler.order ) ) {
-		throw new TypeError( 'Handler order must be an integer' );
+		throw new TypeError( 'Handler order must be an integer.' );
 	}
 }
 
