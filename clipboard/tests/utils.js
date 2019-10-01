@@ -25,12 +25,12 @@ describe( 'utils', () => {
 			invalids.forEach( invalid => {
 				expect( () => {
 					validateHandler( invalid );
-				} ).to.throw( TypeError, 'Handler must be an object' );
+				} ).to.throw( TypeError, 'Handler must be an object.' );
 			} );
 
 			expect( () => {
 				validateHandler( {} );
-			} ).not.to.throw( TypeError, 'Handler must be an object' );
+			} ).not.to.throw( TypeError, 'Handler must be an object.' );
 		} );
 
 		it( 'validates type of handle method', () => {
@@ -48,14 +48,14 @@ describe( 'utils', () => {
 					validateHandler( {
 						handle: invalid
 					} );
-				} ).to.throw( TypeError, 'Handler must have handle method' );
+				} ).to.throw( TypeError, 'Handler must have the handle method.' );
 			} );
 
 			expect( () => {
 				validateHandler( {
 					handle() {}
 				} );
-			} ).not.to.throw( TypeError, 'Handler must have handle method' );
+			} ).not.to.throw( TypeError, 'Handler must have the handle method.' );
 		} );
 
 		it( 'validates type property', () => {
@@ -79,7 +79,7 @@ describe( 'utils', () => {
 						type: invalid,
 						handle() {}
 					} );
-				} ).to.throw( TypeError, 'Handler type must be an instance of HandlerType' );
+				} ).to.throw( TypeError, 'Handler type must be an instance of HandlerType.' );
 			} );
 
 			valids.forEach( valid => {
@@ -88,7 +88,7 @@ describe( 'utils', () => {
 						type: valid,
 						handle() {}
 					} );
-				} ).not.to.throw( TypeError, 'Handler type must be an instance of HandlerType' );
+				} ).not.to.throw( TypeError, 'Handler type must be an instance of HandlerType.' );
 			} );
 		} );
 
@@ -114,7 +114,7 @@ describe( 'utils', () => {
 						order: invalid,
 						handle() {}
 					} );
-				} ).to.throw( TypeError, 'Handler order must be an integer' );
+				} ).to.throw( TypeError, 'Handler order must be an integer.' );
 			} );
 
 			valids.forEach( valid => {
@@ -123,7 +123,7 @@ describe( 'utils', () => {
 						order: valid,
 						handle() {}
 					} );
-				} ).not.to.throw( TypeError, 'Handler order must be an integer' );
+				} ).not.to.throw( TypeError, 'Handler order must be an integer.' );
 			} );
 		} );
 	} );
