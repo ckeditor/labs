@@ -1,0 +1,9 @@
+{
+	"extends": [
+		"eslint-config-ckeditor5"
+	],
+
+	"env": {
+		"browser": true
+	}
+}
