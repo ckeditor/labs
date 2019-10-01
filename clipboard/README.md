@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/@ckeditor/clipboard.svg)](https://www.npmjs.com/package/@ckeditor/clipboard)
 
-A simple library for handling pasting and dropping into a webpage.
+A simple library for handling pasting and dropping into a web page.
 
 ## Usage
 
