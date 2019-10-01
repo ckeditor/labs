@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/@ckeditor/clipboard.svg)](https://www.npmjs.com/package/@ckeditor/clipboard)
 
-Simple library for handling pasting and dropping into webpage.
+A simple library for handling pasting and dropping into a webpage.
 
 ## Usage
 
@@ -40,7 +40,7 @@ npm install
 npm run test
 ```
 
-If you are going to change the source files (ones located in `src/` directory), remember about rebuilding the package. You can use `npm run develop` in order to do it automatically.
+If you are going to change the source files (ones located in the `src/` directory), remember about rebuilding the package. You can use `npm run develop` in order to do it automatically.
 
 ### Building the package
 
