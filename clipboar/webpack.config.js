@@ -34,6 +34,7 @@ module.exports = {
 		minimizer: [
 			new TerserWebpackPlugin( {
 				sourceMap: true,
+				extractComments: false,
 				terserOptions: {
 					output: {
 						// Preserve license comments.
