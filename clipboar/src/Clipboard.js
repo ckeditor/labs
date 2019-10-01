@@ -29,7 +29,7 @@ class Clipboard {
 
 	getHandlers( type ) {
 		if ( typeof type !== 'undefined' && !( type instanceof HandlerType ) ) {
-			throw new TypeError( 'Type must be an instance of HandlerType' );
+			throw new TypeError( 'Type must be an instance of HandlerType.' );
 		}
 
 		const handlers = handlersStore.get( this ) || [];
