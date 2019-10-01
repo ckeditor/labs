@@ -22,7 +22,7 @@ module.exports = {
 	entry: path.join( __dirname, 'src', 'index.js' ),
 
 	output: {
-		library: 'Clipboard',
+		library: 'clipboar',
 
 		path: path.join( __dirname, 'dist' ),
 		filename: 'clipboar.js',
