@@ -1,17 +1,13 @@
-# @cksource/clipboard
+# @ckeditor/clipboard
 
-[![npm version](https://badge.fury.io/js/@cksource/clipboard.svg)](https://www.npmjs.com/package/@cksource/clipboard)
-[![Build Status](https://travis-ci.org/cksource/clipboard.svg?branch=master)](https://travis-ci.org/cksource/clipboard)
-<br>
-[![Dependency Status](https://david-dm.org/cksource/clipboard/status.svg)](https://david-dm.org/cksource/clipboard)
-[![devDependency Status](https://david-dm.org/cksource/clipboard/dev-status.svg)](https://david-dm.org/cksource/clipboard?type=dev)
+[![npm version](https://badge.fury.io/js/@ckeditor/clipboard.svg)](https://www.npmjs.com/package/@ckeditor/clipboard)
 
 Simple library for handling pasting and dropping into webpage.
 
 ## Usage
 
 ```js
-import { Clipboard, HandlerType } from '@cksource/clipboard';
+import { Clipboard, HandlerType } from '@ckeditor/clipboard';
 
 const clipboard = new Clipboard();
 
