@@ -43,3 +43,5 @@ Trademarks
 ----------
 
 **CKEditor** is a trademark of [CKSource](http://cksource.com) Frederico Knabben. All other brand and product names are trademarks, registered trademarks or service marks of their respective holders.
+
+Boar used inside the project logo is designed by xylia from [Pngtree.com](https://pngtree.com/).
