@@ -4,7 +4,7 @@
 
 <img src="./logo.png" alt="" width="600" height="315">
 
-A simple library for handling pasting and dropping into a web page.
+A simple library for handling pasting and dropping content into a web page.
 
 ## Usage
 
@@ -60,4 +60,4 @@ Licensed under the terms of [MIT license](https://opensource.org/licenses/MIT).
 
 For full details about the license, please check the `LICENSE.md` file.
 
-Boar used inside logo is designed by xylia from [Pngtree.com](https://pngtree.com/).
+Boar used inside the project logo is designed by xylia from [Pngtree.com](https://pngtree.com/).
