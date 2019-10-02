@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/clipboar.svg)](https://www.npmjs.com/package/clipboar)
 
-<img src="./boar-graphics.png" alt="">
+<img src="https://raw.githubusercontent.com/ckeditor/labs/f50c8addbe0383718ebe9f6db63de5a149347014/clipboar/boar-graphics.png" alt="">
 
 A simple library for handling pasting and dropping content into a web page.
 
