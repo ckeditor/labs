@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/ckeditor/labs/issues"
   },
-  "homepage": "https://github.com/ckeditor/labs/clipboar#readme",
+  "homepage": "https://github.com/ckeditor/labs/tree/master/clipboar#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
