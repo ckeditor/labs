@@ -1,6 +1,6 @@
 {
   "name": "clipboar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple library for handling pasting and dropping into webpage.",
   "license": "MIT",
   "main": "dist/clipboar.js",
