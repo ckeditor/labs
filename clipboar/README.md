@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/clipboar.svg)](https://www.npmjs.com/package/clipboar)
 
-<img src="./boar-graphics.png" alt="" width="600" height="315">
+<img src="./boar-graphics.png" alt="">
 
 A simple library for handling pasting and dropping content into a web page.
 
@@ -60,4 +60,4 @@ Licensed under the terms of [MIT license](https://opensource.org/licenses/MIT).
 
 For full details about the license, please check the `LICENSE.md` file.
 
-BThe boar 🐗 used in the project illustration is designed by xylia from [Pngtree.com](https://pngtree.com/).
+The boar 🐗 used in the project illustration is designed by xylia from [Pngtree.com](https://pngtree.com/).
