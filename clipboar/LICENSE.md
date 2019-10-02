@@ -9,7 +9,7 @@ Licensed under the terms of [MIT license](https://opensource.org/licenses/MIT).
 Sources of Intellectual Property Included in clipboar
 -----------------------------------------------------
 
-Where not otherwise indicated, all CKEditor content is authored by CKSource engineers and consists of CKSource-owned intellectual property. In some specific instances, CKEditor will incorporate work done by developers outside of CKSource with their express permission.
+Where not otherwise indicated, all clipboar content is authored by CKSource engineers and consists of CKSource-owned intellectual property. In some specific instances, clipboar will incorporate work done by developers outside of CKSource with their express permission.
 
 The following libraries are included in clipboar under the [MIT license](https://opensource.org/licenses/MIT):
 - enumify Copyright (c) 2017 Axel Rauschmayer
