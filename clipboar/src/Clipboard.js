@@ -76,7 +76,7 @@ class Clipboard {
 		}
 
 		const listener = evt => {
-			const handlers = this.getHandlers( type ).splice( 0 ).sort( ( { order: order1 }, { order: order2 } ) => {
+			const handlers = this.getHandlers( type ).slice( 0 ).sort( ( { order: order1 }, { order: order2 } ) => {
 				if ( order1 === order2 ) {
 					return 0;
 				}
