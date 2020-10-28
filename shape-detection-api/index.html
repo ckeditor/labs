@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shape Detection API demo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
+	<style>
+		header {
+			background-color: #942cc8;
+			color: #fff;
+			padding: 1rem;
+		}
+
+		body {
+			font-family: 'Nunito Sans', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		label {
+			line-height: 3rem;
+			position: relative;
+		}
+
+		input[type="file" i] {
+			display: none;
+		}
+
+		.upload-label {
+			display: inline-block;
+			margin-left: 2rem;
+		}
+
+		.upload-button {
+			border: 1px solid #fff;
+			padding: 0.25rem 1rem;
+			margin-left: 0.25rem;
+		}
+
+		.upload-button:active {
+			background: #ffffffbf;
+			color: #942cc8;
+		}
+		.label-description {
+			display: none;
+		}
+
+		label:hover .label-description {
+			display: inline-block;
+			position: absolute;
+			z-index: 999;
+			top: -100%;
+			left: 0;
+			background-color: #cecece;
+			color: #000000;
+			padding: 0.25rem;
+			width: max-content;
+			font-size: 0.75rem;
+			line-height: 0.75rem;
+		}
+
+		.info-text {
+			padding: 2rem;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		a {
+			color: #942cc8;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			text-decoration-color: #000;
+		}
+		code {
+			background: #cecece;
+			padding: 0.25rem 0.35rem;
+			display: inline-block;
+		}
+		canvas {
+			max-width: 100%;
+		}
+		.header--inner-wrap {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header--inner-wrap">
+			<h1>Shape Detection API</h1>
+		
+			<label><input type="radio" name="detection-type" value="face" checked="checked"> Face detection </label>
+			<label><input type="radio" name="detection-type" value="barcode"> Barcode detection <span class="label-description">Doesn't work reliably</span></label>
+			<label><input type="radio" name="detection-type" value="text"> Text detection <span class="label-description">Works best with high contrast...</span></label>
+			<div class="upload-label">Choose image file:</div>
+			<label class="upload-button"><input name="detection-file" type="file" accept="image/*" data-type="face">Upload file</label>
+		</div>
+	</header>
+
+	<div id="imageDisplay">
+		<div class="info-text">
+			<p>
+				This is the shape detection API implementation demo
+			</p>
+			<p>
+				The following demo allows you to detect shapes, barcodes and faces from an uploaded image.
+			</p>
+			<p>
+				Refer to the
+				<a href="#" target="_blank">
+					How to detect human faces (and other shapes) in JavaScript
+				</a>
+				on the CKEditor Blog to find out more about the presented function.
+			</p>
+			<p>
+				Please bear in mind, this mechanism only works in Chrome and it requires this flag:
+				<code>chrome://flags#enable-experimental-web-platform-features</code> 				
+				to be turned on.
+			</p>
+			<p>
+
+			</p>
+		</div>
+		<canvas style="position: relative;"/></div>
+	<script type="module">
+		import detectShape from './detector.mjs';
+		const el = document.querySelector('#imageDisplay');
+		const button = document.querySelector('input[name="detection-file"]');
+		const canvas = el.querySelector("canvas");
+		const canvasContext = canvas.getContext('2d');
+		const infoText = document.querySelector(".info-text")
+		
+		function getBase64Image(img,canvas) {
+			
+			canvas.width = img.width;
+			canvas.height = img.height;
+			
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0);
+			
+			var dataURL = canvas.toDataURL("image/png");
+			
+			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+		}
+
+		function markLandmarks(landmark,headWidth) {
+			const props = {};
+			if (landmark.type === "eye") {
+				props.color = "blue";
+				props.width = headWidth / 8;
+				props.height = headWidth / 15;
+			} else {
+				props.color = "red";
+				props.width = headWidth / 5;
+				props.height = headWidth / 15;
+			}
+
+			props.x = landmark.locations[0].x;
+			props.y = landmark.locations[0].y;
+
+			canvasContext.beginPath();
+			canvasContext.ellipse(props.x, props.y, props.width, props.height, Math.PI, 0, 2 * Math.PI);
+			canvasContext.strokeStyle = props.color;
+			canvasContext.lineWidth = 2;
+			canvasContext.stroke();
+		}
+
+		function markDetection(el) {
+			const position = {};
+			const lineWidth = el.landmarks ? 5 : 2;
+			position.left = el.boundingBox.left;
+			position.top = el.boundingBox.top;
+			position.height = el.boundingBox.height;
+			position.width = el.boundingBox.width;
+			canvasContext.beginPath()
+			canvasContext.strokeStyle = "lime";
+			canvasContext.lineWidth = lineWidth;
+			canvasContext.strokeRect(position.left,position.top,position.width,position.height);
+			canvasContext.stroke();
+
+			// if (el.landmarks) {
+			// 	el.landmarks.forEach(element => {
+			// 		markLandmarks(element,position.width);
+			// 	});
+			// }
+
+		}
+		
+		button.addEventListener( 'change', async ( { target } ) => {
+			
+			const [ image ] = target.files;
+			const detectionType = document.querySelector('input[name="detection-type"]:checked').value;
+			const detected = await detectShape( image, detectionType );
+			let imageData = await createImageBitmap( image );
+			imageData = getBase64Image(imageData, canvas);
+			localStorage.setItem("imageData", imageData);
+
+			detected.forEach(element => {
+				markDetection(element);
+			});
+			infoText.style.display = "none";
+
+			// console.log( detected );
+		} );
+	</script>
+</body>
+</html>
