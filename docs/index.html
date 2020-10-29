@@ -145,32 +145,10 @@
 	<script type="module">
 		import detectShape from './detector.mjs';
 		const el = document.querySelector('#imageDisplay');
-		const button = document.querySelector('input[type=file"]');
+		const button = document.querySelector('input[type="file"]');
 		const canvas = document.querySelector("canvas");
 		const canvasContext = canvas.getContext('2d');
 		const infoText = document.querySelector(".info-text")
-
-		function getBase64Image(img, canvas) { // Drawing loaded image on the canvas.
-
-			canvas.width = img.width;
-			canvas.height = img.height;
-
-			var ctx = canvas.getContext("2d");
-			ctx.drawImage(img, 0, 0);
-
-			var dataURL = canvas.toDataURL("image/png");
-
-			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-		}
-
-		function markDetection(element) { // Function for marking the detected areas.
-			const lineWidth = element.landmarks ? 5 : 2;
-			canvasContext.beginPath()
-			canvasContext.strokeStyle = "lime";
-			canvasContext.lineWidth = lineWidth;
-			canvasContext.strokeRect(element.boundingBox.left, element.boundingBox.top, element.boundingBox.width, element.boundingBox.height);
-			canvasContext.stroke();
-		}
 
 		button.addEventListener('click', (event) => { event.target.value = null }) // Clearing the image - needed if you want to use the same one for different shape detections.
 		button.addEventListener('change', async ({ target }) => {
@@ -180,8 +158,8 @@
 			const detected = await detectShape(image, detectionType);
 
 			// Drawing image in a <canvas>.
-			let imageData = await createImageBitmap(image);
-			imageData = getBase64Image(imageData, canvas);
+			const imageData = await createImageBitmap(image);
+			drawImage(imageData);
 			
 			// Marking each detection on the image.
 			detected.forEach(element => {
@@ -191,6 +169,20 @@
 
 			console.log( detected ); // Detection output data.
 		});
+
+		function drawImage(img) { // Drawing loaded image on the canvas.
+			canvas.width = img.width;
+			canvas.height = img.height;
+
+			canvasContext.drawImage(img, 0, 0);
+		}
+
+		function markDetection(element) { // Function for marking the detected areas.
+			const lineWidth = element.landmarks ? 5 : 2;
+			canvasContext.strokeStyle = "lime";
+			canvasContext.lineWidth = lineWidth;
+			canvasContext.strokeRect(element.boundingBox.left, element.boundingBox.top, element.boundingBox.width, element.boundingBox.height);
+		}
 	</script>
 </body>
 
