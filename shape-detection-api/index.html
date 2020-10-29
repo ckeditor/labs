@@ -34,7 +34,6 @@
 		}
 
 		.upload-button {
-			/* border: 1px solid #fff; */
 			padding: 0.25rem 1rem;
 			margin-left: 0.25rem;
 			color: #fff;
@@ -57,7 +56,7 @@
 			z-index: 999;
 			top: -100%;
 			left: 0;
-			background-color: #cecece;
+			background-color: #fff;
 			color: #000000;
 			padding: 0.25rem;
 			width: max-content;
@@ -110,9 +109,9 @@
 					class="label-description">Doesn't work reliably</span></label>
 			<label><input type="radio" name="detection-type" value="text"> Text detection <span
 					class="label-description">Works best with high contrast...</span></label>
-			<div class="upload-label">Choose image file:</div>
-			<label class="upload-button"><input name="detection-file" type="file" accept="image/*" data-type="face">
-				Analyze file</label>
+			<div class="upload-label">Analyze image file:</div>
+			<label class="upload-button"><input name="detection-file" type="file" accept="image/*"
+					data-type="face">Choose file</label>
 		</div>
 	</header>
 
@@ -142,6 +141,7 @@
 			</p>
 		</div>
 		<canvas style="position: relative;" />
+	</div>
 	</div>
 	<script type="module">
 		import detectShape from './detector.mjs';
