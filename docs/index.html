@@ -164,28 +164,6 @@
 			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 		}
 
-		function markLandmarks(landmark, headWidth) {
-			const props = {};
-			if (landmark.type === "eye") {
-				props.color = "blue";
-				props.width = headWidth / 8;
-				props.height = headWidth / 15;
-			} else {
-				props.color = "red";
-				props.width = headWidth / 5;
-				props.height = headWidth / 15;
-			}
-
-			props.x = landmark.locations[0].x;
-			props.y = landmark.locations[0].y;
-
-			canvasContext.beginPath();
-			canvasContext.ellipse(props.x, props.y, props.width, props.height, Math.PI, 0, 2 * Math.PI);
-			canvasContext.strokeStyle = props.color;
-			canvasContext.lineWidth = 2;
-			canvasContext.stroke();
-		}
-
 		function markDetection(el) {
 			const position = {};
 			const lineWidth = el.landmarks ? 5 : 2;
@@ -198,15 +176,9 @@
 			canvasContext.lineWidth = lineWidth;
 			canvasContext.strokeRect(position.left, position.top, position.width, position.height);
 			canvasContext.stroke();
-
-			// if (el.landmarks) {
-			// 	el.landmarks.forEach(element => {
-			// 		markLandmarks(element,position.width);
-			// 	});
-			// }
-
 		}
-
+		
+		button.addEventListener('click', (event) => { event.target.value = null })
 		button.addEventListener('change', async ({ target }) => {
 
 			const [image] = target.files;
