@@ -110,8 +110,7 @@
 			<label><input type="radio" name="detection-type" value="text"> Text detection <span
 					class="label-description">Works best with high contrast...</span></label>
 			<div class="upload-label">Analyze image file:</div>
-			<label class="upload-button"><input name="detection-file" type="file" accept="image/*"
-					data-type="face">Choose file</label>
+			<label class="upload-button"><input name="detection-file" type="file" accept="image/*">Choose file</label>
 		</div>
 	</header>
 
@@ -151,7 +150,7 @@
 		const canvasContext = canvas.getContext('2d');
 		const infoText = document.querySelector(".info-text")
 
-		function getBase64Image(img, canvas) {
+		function getBase64Image(img, canvas) { // drawing loaded image on the canvas
 
 			canvas.width = img.width;
 			canvas.height = img.height;
@@ -164,7 +163,7 @@
 			return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 		}
 
-		function markDetection(el) {
+		function markDetection(el) { //function for marking the detected areas
 			const position = {};
 			const lineWidth = el.landmarks ? 5 : 2;
 			position.left = el.boundingBox.left;
@@ -177,23 +176,25 @@
 			canvasContext.strokeRect(position.left, position.top, position.width, position.height);
 			canvasContext.stroke();
 		}
-		
-		button.addEventListener('click', (event) => { event.target.value = null })
-		button.addEventListener('change', async ({ target }) => {
 
+		button.addEventListener('click', (event) => { event.target.value = null }) //clearing the image - needed if you want to use the same one for different shape detections
+		button.addEventListener('change', async ({ target }) => {
+			// getting data for detection
 			const [image] = target.files;
 			const detectionType = document.querySelector('input[name="detection-type"]:checked').value;
 			const detected = await detectShape(image, detectionType);
+
+			// drawing image in a <canvas>
 			let imageData = await createImageBitmap(image);
 			imageData = getBase64Image(imageData, canvas);
-			localStorage.setItem("imageData", imageData);
-
+			
+			// marking each detection on the image
 			detected.forEach(element => {
 				markDetection(element);
 			});
-			infoText.style.display = "none";
+			infoText.style.display = "none"; // hiding info text after loading the image
 
-			// console.log( detected );
+			// console.log( detected ); // detection output
 		});
 	</script>
 </body>
