@@ -9,3 +9,4 @@ This is a development playground for [CKEditor](https://ckeditor.com/) developer
 The following projects can be found in this repository:
 
 * [`clipboar`](https://github.com/ckeditor/labs/tree/master/clipboar) :boar: &ndash; A simple library for handling pasting and dropping content into a web page.
+* [`shape detection API demo`](https://github.com/ckeditor/labs/tree/face-detection-api/docs/shape-detection-api) &ndash; Demo for `shape detection API` [article](https://ckeditor.com/blog/How-to-detect-human-faces-and-other-shapes-in-JavaScript/).
