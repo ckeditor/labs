@@ -28,6 +28,7 @@
 		label {
 			line-height: 3rem;
 			position: relative;
+			display: inline-block;
 		}
 
 		input[type="file"i] {
@@ -40,10 +41,12 @@
 		}
 
 		.upload-button {
-			padding: 0.25rem 1rem;
+			padding: 0 1rem;
 			margin-left: 0.25rem;
 			color: #fff;
 			background-color: #942cc8;
+			display: inline-block;
+			line-height: 2;
 		}
 
 		.upload-button:hover,
@@ -115,8 +118,9 @@
 					class="label-description">Doesn't work reliably</span></label>
 			<label><input type="radio" name="detection-type" value="text"> Text detection <span
 					class="label-description">Works best with high contrast...</span></label>
-			<div class="upload-label">Analyze image file:</div>
-			<label class="upload-button"><input name="detection-file" type="file" accept="image/*">Choose file</label>
+			<div class="upload-label">Analyze image file:
+				<label class="upload-button"><input name="detection-file" type="file" accept="image/*">Choose file</label>
+			</div>
 		</div>
 	</header>
 
@@ -137,9 +141,9 @@
 				on the CKEditor Blog to find out more about the presented function.
 			</p>
 			<p>
-				Please bear in mind, this mechanism only works in Chrome and it requires this flag:
+				Please bear in mind, this mechanism only works in Chrome (Mac, Windows) and it requires this flag:
 				<code>chrome://flags#enable-experimental-web-platform-features</code>
-				to be turned on.
+				to be turned on. 
 			</p>
 			<p>
 
