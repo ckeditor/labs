@@ -139,7 +139,7 @@
 
 			</p>
 		</div>
-		<canvas style="position: relative;" />
+		<canvas style="position: relative;"></canvas>
 	</div>
 	</div>
 	<script type="module">
@@ -160,14 +160,14 @@
 			// Drawing image in a <canvas>.
 			const imageData = await createImageBitmap(image);
 			drawImage(imageData);
-			
+
 			// Marking each detection on the image.
 			detected.forEach(element => {
 				markDetection(element);
 			});
 			infoText.style.display = "none"; // Hiding info text after loading the image.
 
-			console.log( detected ); // Detection output data.
+			console.log(detected); // Detection output data.
 		});
 
 		function drawImage(img) { // Drawing loaded image on the canvas.
