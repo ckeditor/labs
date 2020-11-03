@@ -1,0 +1,23 @@
+{
+  "name": "text-detection-api-demo",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Demo for the article about Text Detection API.",
+  "main": "detector.mjs",
+  "scripts": {
+    "start": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckeditor/labs.git"
+  },
+  "keywords": [],
+  "author": "Comandeer",
+  "bugs": {
+    "url": "https://github.com/ckeditor/labs/issues"
+  },
+  "homepage": "https://github.com/ckeditor/labs/tree/face-detection-api/docs/shape-detection-api#readme",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  }
+}
